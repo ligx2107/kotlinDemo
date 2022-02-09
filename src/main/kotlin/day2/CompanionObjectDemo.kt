@@ -38,7 +38,7 @@ fun main() {
     /**
      * 伴生对象方法及属性调用
      * 方式1：类名.伴生对象名.属性/方法
-     * 方式2：类型.伴生对象属性/方法   ---> 类似java静态属性及方法调用方式
+     * 方式2：类名.伴生对象属性/方法   ---> 类似java静态属性及方法调用方式
      */
     println(CompanionObject.CObject.name)
     CompanionObject.CObject.method()
