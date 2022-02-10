@@ -17,7 +17,7 @@ fun main() {
 
     println("--------------------")
 
-    //  带接收者的函数字面值
+    //  带接收者的函数字面值, 整个lambda表达式作为变脸substract的类型
     var substract: Int.(other: Int) -> Int = {other -> this - other}
     println(6.substract(3))
 
@@ -31,6 +31,12 @@ fun main() {
      */
     var user = User("lisi", 3)
     user.takeIf { it.name.isNotBlank() }?.run { println(this.name) } ?: println("")
+
+    // 使用带接收者的函数字面值方式，实现User对象名字长度的比较功能
+    val userNameComparator: User.(other: User) -> Boolean = {other -> this.name.length > other.name.length}
+    var user2 = User("aaaaaa", 4)
+    println(user.userNameComparator(user2))
+
 }
 
 class User(var name: String, var age: Int)
