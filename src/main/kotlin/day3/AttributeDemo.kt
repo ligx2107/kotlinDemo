@@ -1,6 +1,5 @@
 package day3
 
-
 /**
  *  val/var propertyName: propertyType = initValue
  *      getter()

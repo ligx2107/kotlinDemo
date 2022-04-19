@@ -7,5 +7,5 @@ package day5
 inline fun myCalculate(a: Int, b: Int) = a + b
 
 fun main() {
-    println(myCalculate(1,2))
+    println(myCalculate(1, 2))
 }

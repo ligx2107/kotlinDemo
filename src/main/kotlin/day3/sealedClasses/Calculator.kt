@@ -4,5 +4,5 @@ package day3.sealedClasses
 sealed class Calculator
 
 // 定义子类实现父类
-class Add: Calculator()
-class Subtract: Calculator()
+class Add : Calculator()
+class Subtract : Calculator()

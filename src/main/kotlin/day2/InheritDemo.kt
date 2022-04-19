@@ -6,7 +6,7 @@ package day2
  * 使用open修饰符修饰的类可以被继承
  */
 open class Parent constructor(name: String, age: Int) {
-    open fun test(info: String){
+    open fun test(info: String) {
         println("info: $info")
     }
 }
@@ -25,9 +25,8 @@ class Child constructor(name: String, age: Int) : Parent(name, age) {
  * 子类没有primary构造方法，每个secondary构造方法，都需要以super关键字调用父类指定的构造方法
  * 不同的secondary构造方法可调用不同的父类构造方法
  */
-class Child2: Parent {
-    constructor(name: String, age: Int):super(name,age){
-
+class Child2 : Parent {
+    constructor(name: String, age: Int) : super(name, age) {
     }
 }
 

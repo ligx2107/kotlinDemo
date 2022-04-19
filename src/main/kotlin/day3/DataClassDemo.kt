@@ -23,18 +23,15 @@ package day3
  *
  * 在jvm平台上，如果数据类需要无参构造方法，则需要为所有的参数指定默认值
  */
-data class DataClassDemo(val name: String, var age: Int, var address: String) {
+data class DataClassDemo(val name: String, var age: Int, var address: String)
 
-}
-
-data class DataClassDemo2(var name: String = "zhaoliu"){
-
+data class DataClassDemo2(var name: String = "zhaoliu") {
 }
 
 fun main() {
-    var dataClassDemo = DataClassDemo("zhangsan",18,"dalian")
+    var dataClassDemo = DataClassDemo("zhangsan", 18, "dalian")
     println(dataClassDemo)
-    var dataClassDemo2 = dataClassDemo.copy(name = "wangwu") //copy方法指定要修改的具体参数信息
+    var dataClassDemo2 = dataClassDemo.copy(name = "wangwu") // copy方法指定要修改的具体参数信息
     println(dataClassDemo2)
 
     // 解构声明

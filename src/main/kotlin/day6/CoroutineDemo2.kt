@@ -28,7 +28,6 @@ fun main2_2() = runBlocking {
     println("thread name -> ${Thread.currentThread().name}: hello, ")
 }
 
-
 // 抽取函数重构
 fun main2_3() = runBlocking {
     launch {
@@ -39,8 +38,7 @@ fun main2_3() = runBlocking {
 }
 
 // 挂起函数
-suspend fun printWorld(){
+suspend fun printWorld() {
     delay(1000)
     println("thread name -> ${Thread.currentThread().name}: world!")
 }
-

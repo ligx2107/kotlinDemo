@@ -10,8 +10,8 @@ fun main(args: Array<String>) {
     whenCheck()
 }
 
-fun myConverter(str: String) : String {
-    when(str){
+fun myConverter(str: String): String {
+    when (str) {
         "a" -> return "A"
         "b" -> return "B"
         else -> return "other input"
@@ -19,7 +19,7 @@ fun myConverter(str: String) : String {
 }
 
 // 表达式直接赋值
-fun myConverter2(str: String) : String = when(str){
+fun myConverter2(str: String): String = when (str) {
     "a" -> "A"
     "b" -> "B"
     else -> "other input"
@@ -58,9 +58,9 @@ fun getResult(a: Int) = when (a) {
 /**
  * when关键字做检测
  */
-fun whenCheck(){
-    var list: List<String> = listOf("hello","world","ok")
-    when{
+fun whenCheck() {
+    var list: List<String> = listOf("hello", "world", "ok")
+    when {
         "ok" in list -> println("ok in the list")
     }
     // 函数式编程

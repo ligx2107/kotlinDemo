@@ -1,18 +1,16 @@
 package day4
 
-import javax.swing.Spring
-
-//简单枚举类
+// 简单枚举类
 enum class Season {
     SPRING, SUMMER, AUTUMN, WINTER
 }
 
-//带有属性的枚举类
+// 带有属性的枚举类
 enum class Season2(val temperature: Int) {
     SPRING(10), SUMMER(30), AUTUMN(20), WINTER(10)
 }
 
-//带有方法的枚举类
+// 带有方法的枚举类
 enum class Season3 {
     SPRING {
         override fun getSeason(): Season3 = SPRING

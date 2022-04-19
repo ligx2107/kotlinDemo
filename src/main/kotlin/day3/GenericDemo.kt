@@ -12,7 +12,7 @@ class GenericDemo<T> constructor(t: T) {
     var variable: T = t
 }
 
-class MyClass<out T, in E>(t:T, e:E){
+class MyClass<out T, in E>(t: T, e: E) {
     private var t: T = t
     private var e: E = e
     fun get(): T = this.t
@@ -21,7 +21,7 @@ class MyClass<out T, in E>(t:T, e:E){
     }
 }
 
-fun myTest(myClass: MyClass<String, Number>){
+fun myTest(myClass: MyClass<String, Number>) {
     /**
      * 协变 --> 需要Any，而提供了String，满足extends E的关系
      * 逆变 --> 需要Int，而提供了Number，满足super E的关系
@@ -37,7 +37,7 @@ class MyStorage<out T>(private var t: T) {
     }
 
     // 使用 @UnsafeVariance注解，屏蔽范型冲突
-    fun setValue(value: @UnsafeVariance T){
+    fun setValue(value: @UnsafeVariance T) {
         this.t = value
     }
 }
@@ -45,16 +45,16 @@ class MyStorage<out T>(private var t: T) {
 /**
  * 范型T设置单个上界
  */
-class UpperBoundsClass<T: List<T>>{}
+class UpperBoundsClass<T : List<T>> {}
 
 /**
  * 通过where关键字指定范型T的多个上界，需同时满足
  */
-class UpperBoundsClass2<T> where T: Comparable<T>, T:Any {}
+class UpperBoundsClass2<T> where T : Comparable<T>, T : Any
 
 fun main() {
     var g = GenericDemo<String>("hello world")
-    //var g = GenericDemo("hello world") --> 借助kotlin的类型推断，具体范型类型可以省略
+    // var g = GenericDemo("hello world") --> 借助kotlin的类型推断，具体范型类型可以省略
     println(g.variable)
     println("-------------")
     var g2 = GenericDemo<Int>(20)
@@ -63,8 +63,8 @@ fun main() {
     myTest(MyClass("hello world", 2))
     println("-------------")
     var storage: MyStorage<Int> = MyStorage(5)
-    var storage2: MyStorage<Any> = storage;
+    var storage2: MyStorage<Any> = storage
     println(storage2.getValue())
-    storage2.setValue("hello") //范型擦除
+    storage2.setValue("hello") // 范型擦除
     println(storage2.getValue())
 }

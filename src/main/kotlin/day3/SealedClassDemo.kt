@@ -13,13 +13,13 @@ import day3.sealedClasses.Subtract
  * 4. 密封类常与when表达式一起使用
  */
 
-fun calculate(a: Int, b: Int, cal: Calculator) = when(cal){
+fun calculate(a: Int, b: Int, cal: Calculator) = when (cal) {
     is Add -> a + b
     is Subtract -> a - b
     // 此处不再需要else来表示其他不满足条件的情况
 }
 
 fun main() {
-    println(calculate(1,2, Add()))
-    println(calculate(1,2, Subtract()))
+    println(calculate(1, 2, Add()))
+    println(calculate(1, 2, Subtract()))
 }

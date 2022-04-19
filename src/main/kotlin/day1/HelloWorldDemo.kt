@@ -8,10 +8,10 @@ import java.util.function.Consumer
  *@date 2021/7/6 16:01
  */
 
-fun main(args: Array<String>){
+fun main(args: Array<String>) {
     val list: List<String> = listOf("hello", "world", "hello world")
     // for循环遍历
-    for (str in list){
+    for (str in list) {
         println(str)
     }
     println("----------")
@@ -21,4 +21,3 @@ fun main(args: Array<String>){
     // 方法引用方式
     list.forEach(System.out::println)
 }
-

@@ -3,12 +3,12 @@ package day4
 import kotlin.properties.Delegates
 import kotlin.reflect.KProperty
 
-//类委托
-interface MyInterface1{
+// 类委托
+interface MyInterface1 {
     fun myMethod()
 }
 
-class MyInterfaceImpl(val name: String): MyInterface1 {
+class MyInterfaceImpl(val name: String) : MyInterface1 {
     override fun myMethod() {
         println("welcome $name")
     }
@@ -19,7 +19,7 @@ class MyInterfaceImpl(val name: String): MyInterface1 {
  * 委托原理：
  * by关键字后面的对象实际上会被存储在类的内部，编译器则会将父接口中的所有方法都实现出来，并且将实现转移给委托对象来完成
  */
-class MyClass1(interface1: MyInterface1): MyInterface1 by interface1
+class MyClass1(interface1: MyInterface1) : MyInterface1 by interface1
 
 /**
  * 属性委托
@@ -30,13 +30,13 @@ class MyClass1(interface1: MyInterface1): MyInterface1 by interface1
  * 4. map属性
  */
 class MyDelegate {
-    //两个方法的签名格式有严格的限制
+    // 两个方法的签名格式有严格的限制
     operator fun getValue(thisRef: Any?, property: KProperty<*>): String = "$thisRef, your delegated property name is ${property.name}"
     operator fun setValue(thisRef: Any?, property: KProperty<*>, value: String) = println("$thisRef, new value is $value")
 }
 
 class MyPropertyClass {
-    //属性的setter和getter委托给by关键字后面的对象处理
+    // 属性的setter和getter委托给by关键字后面的对象处理
     var str: String by MyDelegate()
 }
 
@@ -47,7 +47,7 @@ class MyPropertyClass {
  * 3.NONE: 如果确定初始化操作只会在一个线程中执行，这样会减少线程安全方面的开销
  */
 val myLazyValue: Int by lazy(LazyThreadSafetyMode.NONE) {
-    //多次调用，只打印一次
+    // 多次调用，只打印一次
     println("hello")
     30
 }

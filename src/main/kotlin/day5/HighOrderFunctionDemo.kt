@@ -13,17 +13,17 @@ package day5
  */
 
 // 标准格式
-var multiply: (Int, Int) -> Int = {a,b -> a * b}
-var add: (Int, Int) -> Int = {a, b -> a + b}
+var multiply: (Int, Int) -> Int = { a, b -> a * b }
+var add: (Int, Int) -> Int = { a, b -> a + b }
 
 // 省略类型说明，由Kotlin自动推断
-var subtract  = {a: Int, b: Int -> a -b}
+var subtract = { a: Int, b: Int -> a - b }
 
 // 无入参及返回值
-var myAction = { println("hello")}
+var myAction = { println("hello") }
 
 // 返回值可能为空, _是Kotlin的一个语法糖
-var mayReturnNull: (Int, Int) -> Int? = {_, _ -> null}
+var mayReturnNull: (Int, Int) -> Int? = { _, _ -> null }
 
 // lambda表达式整体为可能为null
 var functionMayBeNull: ((Int, Int) -> Int)? = null
@@ -36,9 +36,9 @@ fun myCalculate(a: Int, b: Int, calculate: (Int, Int) -> Int): Int {
 // 字符串扩展方法
 fun String.filter(predicate: (Char) -> Boolean): String {
     var sb = StringBuilder()
-    for(index in 0 until length){
+    for (index in 0 until length) {
         var item = get(index)
-        if(predicate(item)){
+        if (predicate(item)) {
             sb.append(item)
         }
     }
@@ -51,17 +51,19 @@ fun main() {
     println(myCalculate(2, 5, multiply))
 
     // 重新定义
-    println(myCalculate(4,2, {x, y -> x - y}))
+    println(myCalculate(4, 2, { x, y -> x - y }))
 
     // 方法的最后一个参数为一个函数，可以将lambda表达式放在调用方法圆括号外面
-    println(myCalculate(3,2){
-        x,y -> x - y
-    })
+    println(
+        myCalculate(3, 2) {
+                x, y ->
+            x - y
+        }
+    )
 
     println("abcd".filter { e -> e !== 'c' })
 
     var strings = arrayOf("hello", "world")
-
 
     strings.filter {
         var myFilter = it.length > 3

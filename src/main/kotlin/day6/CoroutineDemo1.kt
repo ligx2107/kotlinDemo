@@ -4,7 +4,7 @@ import kotlinx.coroutines.*
 
 class CoroutineDemo1 {
     lateinit var innerAsync: Deferred<Any>
-    fun test(){
+    fun test() {
         println("Outer code started on thread: " + Thread.currentThread().name)
         GlobalScope.launch(context = Dispatchers.IO) {
             innerAsync = async {
@@ -24,17 +24,17 @@ class CoroutineDemo1 {
         println("Outer code resumed on thread: " + Thread.currentThread().name)
     }
 
-    private suspend fun method1(){
-        withContext(Dispatchers.IO){
-            for(i in 1..5){
+    private suspend fun method1() {
+        withContext(Dispatchers.IO) {
+            for (i in 1..5) {
                 println("Inner code i: $i on thread: " + Thread.currentThread().name)
             }
         }
     }
 
-    private suspend fun method2(){
-        withContext(Dispatchers.IO){
-            for(i in 6..10){
+    private suspend fun method2() {
+        withContext(Dispatchers.IO) {
+            for (i in 6..10) {
                 println("Inner code i: $i on thread: " + Thread.currentThread().name)
             }
         }

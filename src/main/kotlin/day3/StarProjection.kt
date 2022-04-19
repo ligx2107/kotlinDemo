@@ -9,8 +9,8 @@ package day3
 
 class StarOut<out T>
 
-class StarIn<in T>{
-    fun setValue(t: T){}
+class StarIn<in T> {
+    fun setValue(t: T) {}
 }
 
 fun main() {

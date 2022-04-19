@@ -20,7 +20,7 @@ fun main(args: Array<String>) {
 //    }
 
     var dataMap = mutableMapOf<String, MutableList<String>>()
-    dataMap.put("1", mutableListOf("str1_1","str1_2","str1_3"))
-    dataMap.put("2", mutableListOf("str2_1","str2_2","str2_3"))
+    dataMap.put("1", mutableListOf("str1_1", "str1_2", "str1_3"))
+    dataMap.put("2", mutableListOf("str2_1", "str2_2", "str2_3"))
     println(dataMap.values.flatMap { it.toList() })
 }

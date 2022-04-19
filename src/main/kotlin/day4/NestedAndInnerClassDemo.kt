@@ -7,18 +7,18 @@ package day4
  */
 class OuterClass {
     private var str: String = "hello world"
-    //定义嵌套类
-    class NestedClass(){
+    // 定义嵌套类
+    class NestedClass() {
         fun nestedClassMethod() = "welcome"
     }
 
-    //定义内部类
-    inner class InnerClass(){
-        //内部类方法，调用外部类属性方式
+    // 定义内部类
+    inner class InnerClass() {
+        // 内部类方法，调用外部类属性方式
         fun innerClassMethod() = this@OuterClass.str
     }
 
-    //定义局部嵌套类
+    // 定义局部嵌套类
     fun getName(): String {
         class LocalNestedClass(var name: String)
         var localName = LocalNestedClass("Mark").name
@@ -27,10 +27,10 @@ class OuterClass {
 }
 
 fun main() {
-    //嵌套类方法调用
+    // 嵌套类方法调用
     println(OuterClass.NestedClass().nestedClassMethod())
 
-    //内部类方法调用
+    // 内部类方法调用
     println(OuterClass().InnerClass().innerClassMethod())
 
     println(OuterClass().getName())

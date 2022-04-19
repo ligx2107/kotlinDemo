@@ -5,12 +5,12 @@ package day2
  */
 open class Fruit {
     // open修饰方法，可被子类重写
-    open fun name(){
+    open fun name() {
         println("Fruit")
     }
 
     // 默认的方法为final，不能被子类重写
-    fun expireDate(){
+    fun expireDate() {
         println("1 month")
     }
 
@@ -21,9 +21,9 @@ open class Fruit {
     open val color: String = "red"
 }
 
-class Apple:Fruit(){
+class Apple : Fruit() {
     // 子类用override关键字重写父类方法及属性
-    override fun name(){
+    override fun name() {
         println("apple")
     }
 
@@ -33,9 +33,7 @@ class Apple:Fruit(){
 /**
  * 在类的primary构造方法中直接重写父类属性
  */
-class Orange(override val color: String): Fruit() {
-
-}
+class Orange(override val color: String) : Fruit()
 
 fun main() {
     var fruit: Fruit = Apple()

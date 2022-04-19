@@ -11,9 +11,9 @@ package day2
  *   类的secondary构造方法必须要直接或间接的调用类的primary构造方法
  * 4.kotlin中，一个类的属性必须初始化，可以定义时直接初始化，也可以在初始化代码块(init)中进行
  */
-class Demo constructor(userName : String) {
+class Demo constructor(userName: String) {
     // 初始代码块
-    init{
+    init {
         println("userName is $userName")
     }
 
@@ -24,7 +24,7 @@ class Demo constructor(userName : String) {
 class Person constructor(userName: String) {
     // 定义属性
     private var username: String
-    private var age: Int = 20 //定义属性时直接初始化
+    private var age: Int = 20 // 定义属性时直接初始化
     private var address: String
 
     // 通过初始化代码块对类属性进行初始化
@@ -35,7 +35,7 @@ class Person constructor(userName: String) {
     }
 
     // 定义secondary构造方法, 直接调用类的primary构造方法
-    constructor(userName: String, age: Int): this(userName){
+    constructor(userName: String, age: Int) : this(userName) {
         println("userName: $userName, age: $age")
         this.username = userName
         this.age = age
@@ -43,7 +43,7 @@ class Person constructor(userName: String) {
     }
 
     // 定义secondary构造方法, 间接调用类的primary构造方法
-    constructor(userName: String, age: Int, address: String): this(userName, age){
+    constructor(userName: String, age: Int, address: String) : this(userName, age) {
         println("userName: $userName, age: $age, address: $address")
         this.address = address
     }
@@ -56,7 +56,7 @@ class Person constructor(userName: String) {
  */
 class Student constructor(private var userName: String, private val age: Int) {
     // 定义信息打印方法
-    fun printInfo(){
+    fun printInfo() {
         println("username: ${this.userName}, age: ${this.age}")
     }
 }
@@ -65,9 +65,7 @@ class Student constructor(private var userName: String, private val age: Int) {
  * 在jvm上，如果类的primary构造函数的所有参数都有默认值，那么kotlin编译器会默认为这个类生成一个无参的构造方法
  * 此构造方法会使用所有参数的默认值，这样做的目的是可以跟Spring等框架更好的集成
  */
-class Student2 constructor(val userName: String = "zhangsan") {
-
-}
+class Student2 constructor(val userName: String = "zhangsan")
 
 class EmptyTest(var name: String? = null)
 
@@ -89,9 +87,9 @@ fun main(args: Array<String>) {
 
     println("---------------")
     var et = EmptyTest()
-    if(et.name?.isEmpty() == true){
+    if (et.name?.isEmpty() == true) {
         println("111111")
     }
-    println(et.name?:"wwwww")
+    println(et.name ?: "wwwww")
     println(et.name?.length)
 }

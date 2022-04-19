@@ -9,7 +9,7 @@ import kotlin.system.measureTimeMillis
 fun main3_1() = runBlocking {
     var time = measureTimeMillis {
         var one = doSomethingOne()
-        if(one == 1){
+        if (one == 1) {
             doSomethingTwo()
         }
     }
@@ -65,7 +65,7 @@ fun main3_4() = runBlocking {
 fun main3_5() = runBlocking<Unit> {
     try {
         concurrentSumFaild()
-    }catch (e: Exception){
+    } catch (e: Exception) {
         println("computation failed with an Exception")
     }
 }
@@ -119,10 +119,10 @@ suspend fun concurrentSum(): Int = coroutineScope {
 
 suspend fun concurrentSumFaild(): Int = coroutineScope {
     var one = async {
-        try{
+        try {
             delay(Long.MAX_VALUE)
             10
-        }finally {
+        } finally {
             println("first coroutine was cancelled")
         }
     }

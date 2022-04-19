@@ -11,15 +11,15 @@ fun main(args: Array<String>) {
 /**
  * 函数返回值类型后的?表示可以为空
  */
-fun convert2Int(str: String) : Int? {
+fun convert2Int(str: String): Int? {
     try {
         return str.toInt()
-    } catch (ex : NumberFormatException) {
+    } catch (ex: NumberFormatException) {
         return null
     }
 }
 
-fun printMultiply(a: String, b: String){
+fun printMultiply(a: String, b: String) {
     // 此时，a2Int及b2Int为Int?类型而非Int类型
     val a2Int: Int? = convert2Int(a)
     val b2Int: Int? = convert2Int(b)
@@ -35,7 +35,7 @@ fun printMultiply(a: String, b: String){
 /**
  * Kotlin中，Any是所有类的父类，相当于java中的Object
  */
-fun convert2Uppercase(param : Any) : String?{
+fun convert2Uppercase(param: Any): String? {
     // kotlin中，is关键字判断一个实例是否为某一具体类的实例，相当于java中的instanceof关键字
     if (param is String) {
         return param.toUpperCase()

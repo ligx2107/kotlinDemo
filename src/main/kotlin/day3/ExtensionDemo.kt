@@ -21,13 +21,13 @@ fun ExtensionDemo.substract(a: Int, b: Int) = a - b
 // 声明父类
 open class Parent
 // 声明子类
-class Child: Parent()
+class Child : Parent()
 // 扩展父类方法
 fun Parent.method() = "parent.method"
 // 扩展子类方法，且与父类方法同名
 fun Child.method() = "child.method"
 // 新建打印方法
-fun myPrint(parent: Parent){
+fun myPrint(parent: Parent) {
     // 扩展方法的调用只取决于对象声明类型，此时parent对象的声明类型为Parent，
     // 所以不论调用myPrint方法时传递的是Parent对象还是Child对象，
     // 此时都静态解析为声明类型Parent的对象
@@ -37,8 +37,8 @@ fun myPrint(parent: Parent){
 /**
  * 对可空对象进行扩展
  */
-fun Any?.toString() : String {
-    if(this == null){
+fun Any?.toString(): String {
+    if (this == null) {
         return "null"
     }
 
@@ -57,7 +57,6 @@ val MyExtensionProperty.name
  */
 class CompanionObjectExtension {
     companion object MyObject {
-
     }
 }
 fun CompanionObjectExtension.MyObject.method() {
@@ -71,32 +70,32 @@ fun CompanionObjectExtension.MyObject.method() {
  * 3. 当以上两个名字出现冲突时，扩展接受者的优先级最高
  */
 class Test {
-    fun method(){
+    fun method() {
         println("Test.method")
     }
 }
 
 class ExtensionTest {
-    fun method2(){
+    fun method2() {
         println("ExtensionTest.method2")
     }
 
     // 在分发接受者内定义扩展函数
-    fun Test.foo(){
-        //扩展函数内可以调用分发接受者内部定义的其他函数
+    fun Test.foo() {
+        // 扩展函数内可以调用分发接受者内部定义的其他函数
         method2()
-        //扩展函数内可以调用扩展接受者内部定义的其他函数
+        // 扩展函数内可以调用扩展接受者内部定义的其他函数
         method()
     }
 
     // 扩展函数内调用的方法在分发接受者和扩展接受者同时存在，此时扩展接受者优先级最高
-    fun Test.output(){
+    fun Test.output() {
         println(toString()) // 此处打印扩展接受者Test的toString方法
         println(this@ExtensionTest.toString()) // 利用this@分发接受者的方式指定调用分发接受者的toString方法
     }
 
     // 分发接受者内定义的扩展函数，只在分发接受者内部有效，外部无法调用
-    fun test(){
+    fun test() {
         var test = Test()
         test.foo()
         test.output()
@@ -107,8 +106,8 @@ class TestObject
 
 fun main() {
     var ex = ExtensionDemo()
-    println(ex.add(1,2))
-    println(ex.substract(1,2))
+    println(ex.add(1, 2))
+    println(ex.substract(1, 2))
     println("-------扩展静态解析---------")
     myPrint(Child())
     println("-------属性扩展---------")

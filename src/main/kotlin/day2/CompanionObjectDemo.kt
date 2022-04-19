@@ -4,7 +4,7 @@ package day2
  * object declaration  --> 对象声明，直接声明一个对象而不需要通过类来创建
  */
 object MyObject {
-    var name:String = "test"
+    var name: String = "test"
     fun method() {
         println("method")
     }
@@ -20,10 +20,10 @@ object MyObject {
  */
 class CompanionObject {
     companion object CObject {
-        val name:String = "companion object"
+        val name: String = "companion object"
 
         @JvmStatic
-        fun method(){
+        fun method() {
             println("companion object method")
         }
     }

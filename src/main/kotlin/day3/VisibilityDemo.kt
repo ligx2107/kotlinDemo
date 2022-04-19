@@ -7,6 +7,4 @@ package day3
  * internal，模块中可用
  * public，随处可用
  */
-class VisibilityDemo {
-
-}
+class VisibilityDemo

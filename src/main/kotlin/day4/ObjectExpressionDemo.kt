@@ -28,7 +28,7 @@ class MyClass {
         }
     }
 
-    fun test(){
+    fun test() {
         println(myObject.javaClass)
         println(myObject::class.java)
         myObject.output()
@@ -36,8 +36,8 @@ class MyClass {
 }
 
 fun main() {
-    //只实现接口的对象表达式
-    var oe1 = object: MyInterface {
+    // 只实现接口的对象表达式
+    var oe1 = object : MyInterface {
         override fun interfaceMethod(i: Int) {
             println("i的值$i")
         }
@@ -45,8 +45,8 @@ fun main() {
     oe1.interfaceMethod(30)
     println("---------------")
 
-    //只继承父类的对象表达式
-    var oe2 = object: MyAbstractClass() {
+    // 只继承父类的对象表达式
+    var oe2 = object : MyAbstractClass() {
         override var name: String = ""
             get() = "mark"
             set(value) {
@@ -61,8 +61,8 @@ fun main() {
     println(oe2.name)
     println("---------------")
 
-    //同时实现接口和继承父类
-    var oe3 = object: MyInterface, MyAbstractClass() {
+    // 同时实现接口和继承父类
+    var oe3 = object : MyInterface, MyAbstractClass() {
         override fun interfaceMethod(i: Int) {
             println("i的值$i")
         }
