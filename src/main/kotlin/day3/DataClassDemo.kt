@@ -25,8 +25,7 @@ package day3
  */
 data class DataClassDemo(val name: String, var age: Int, var address: String)
 
-data class DataClassDemo2(var name: String = "zhaoliu") {
-}
+data class DataClassDemo2(var name: String = "zhaoliu")
 
 fun main() {
     var dataClassDemo = DataClassDemo("zhangsan", 18, "dalian")
