@@ -139,7 +139,7 @@ fun main() {
     // 37. indexOfLast -> 返回最后一个满足条件的元素索引位置，没有返回-1
     println("最后一个偶数的所以位置: ${list.indexOfLast { it % 2 == 0 }}")
 
-    // 38. last -> 返回最后一个满足调价的元素，没有则抛出NoSuchElementException
+    // 38. last -> 返回最后一个满足条件的元素，没有则抛出NoSuchElementException
     println("最后一个偶数: ${list.last { it % 2 == 0 }}")
 
     // 39. lastIndexOf -> 返回指定元素的最后一个索引位置，没有返回-1
@@ -229,5 +229,3 @@ fun main() {
     var list12 = listOf(10, 20)
     println("zip后列表: ${list12.zip(list11)}")
 }
-
-fun test() {}
