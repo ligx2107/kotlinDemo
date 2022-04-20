@@ -17,13 +17,13 @@ fun main() {
 
     println("--------------------")
 
-    //  带接收者的函数字面值, 整个lambda表达式作为变脸substract的类型
+    //  带接收者的函数字面值, 整个lambda表达式作为变量substract的类型
     var substract: Int.(other: Int) -> Int = { other -> this - other }
     println(6.substract(3))
 
     // 匿名函数语法可以让我们指定函数字面值的接收者类型。这样，就可以先去声明一个带有接收者的函数类型变量，然后再去使用它
     var sum1 = fun Int.(other: Int): Int = this + other
-    println(6.sum1(7))
+    println(6.sum1(7).sum1(8))
 
     /**
      * takeIf takeUnless
